@@ -18,7 +18,8 @@
 				<h3 class="main-goodTitle">Наименование: <?= $this->title ?></h3>
 				<p class="main-goodDescription">Информация: <?= $this->description ?></p>
 				<p class="main-goodCount">Количество: <?= $this->count ?></p>
-				<p class="main-goodPrice">Стоимость: <?= (($this->sourcePrice * $this->count) * $this->discount) ?></p>
+				<p class="main-goodPrice">Стоимость: <?= ((($this->sourcePrice * 1.20) * $this->count) * $this->discount) ?></p>
+				<p>Доход: <?= $this->sourcePrice*1.20 - $this->sourcePrice ?></p>
 			</div>
 		<?PHP }
 	}
