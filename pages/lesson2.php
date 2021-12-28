@@ -14,7 +14,7 @@
 		}
 
 		public function renderGood(){ ?>
-			<div class="main-good">
+			<div class="main-catalog">
 				<h3 class="main-goodTitle">Наименование: <?= $this->title ?></h3>
 				<p class="main-goodDescription">Информация: <?= $this->description ?></p>
 				<p class="main-goodCount">Количество: <?= $this->count ?></p>
