@@ -25,6 +25,8 @@ html, body {
   align-items: center; }
 
 .header {
+  -webkit-flex-grow: 0;
+  flex-grow: 0;
   font-size: 22px;
   min-height: 60px;
   background-color: #ccc;
@@ -39,14 +41,28 @@ html, body {
       color: green; }
 
 .main {
-  height: 100%;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
   display: flex;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
-  flex-direction: column; }
-  .main-goods {
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  margin: 1rem;
+  gap: 1rem; }
+  .main-filter {
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
     margin: 1rem;
-    width: 100%;
+    gap: 1rem; }
+  .main-catalog {
     display: flex;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
@@ -54,10 +70,25 @@ html, body {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-    gap: 2rem; }
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    gap: 1rem; }
+  .main-catalogMore {
+    font-size: 24px;
+    text-align: center;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    width: 150px;
+    color: #000;
+    text-decoration: none;
+    margin: 1rem; }
+    .main-catalogMore:hover {
+      color: blue;
+      border: 1px solid blue; }
   .main-good {
+    min-width: 100px;
     border: 1px solid #000;
     display: flex;
     -webkit-flex-direction: column;
@@ -68,8 +99,35 @@ html, body {
     gap: 0.3rem; }
   .main-goodTitle {
     font-size: 1.3rem; }
+  .main-gallery {
+    margin: 1rem;
+    width: 100%;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 1rem;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center; }
+    .main-gallery_item {
+      display: flex;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-align-items: center;
+      align-items: center;
+      gap: 0.3rem; }
 
 .footer {
+  -webkit-flex-grow: 0;
+  flex-grow: 0;
   font-size: 22px;
   min-height: 60px;
   background-color: #ccc;
