@@ -19,11 +19,7 @@
 			if($this->isPost()) {
 				$new_user = new User();
 				$result = $new_user->newR($_POST['name'], $_POST['login'], $_POST['password']);
-				if ($result) {
-					$this->content = $this->Template('views/user_reg.php', array('text' => $result));
-				} else {
-					$this->content = $this->Template('views/user_reg.php', array('text' => $result));
-				}
+				$this->content = $this->Template('views/user_reg.php', array('text' => $result));
 			}
 		}
 
@@ -35,7 +31,6 @@
 				$login = new User();
 				$result = $login->login($_POST['login'], $_POST['password']);
 				$this->content = $this->Template('views/user_login.php', array('text' => $result));
-				
 			}
 		}
 

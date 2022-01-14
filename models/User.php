@@ -4,8 +4,9 @@
 	class User {
 		
 		public $user_id, $user_login, $user_name, $user_password;
-
+		public $connect;
 		public function __construct () {
+			$this->connect = $this->connecting();
 		}
 
 		public function pass ($name, $password) {
@@ -17,15 +18,13 @@
 		}
 
 		public function get ($id) {
-			$connect = $this->connecting();
-			return $connect->query("SELECT * FROM users WHERE id = '" . $id . "'")->fetch();
+			return $this->connect->query("SELECT * FROM users WHERE id = '" . $id . "'")->fetch();
 		}
 
 		public function newR ($name, $login, $password) {
-			$connect = $this->connecting();
-			$user = $connect->query("SELECT * FROM users WHERE login = '" . $login . "'")->fetch();
+			$user = $this->connect->query("SELECT * FROM users WHERE login = '" . $login . "'")->fetch();
 			if (!$user) {
-				$connect->exec("INSERT INTO users VALUES (null, '" . $name . "', '" . $login . "', '" . $this->pass($name, $password) . "')");
+				$this->connect->exec("INSERT INTO users VALUES (null, '" . $name . "', '" . $login . "', '" . $this->pass($name, $password) . "')");
 				return true;
 			} else {
 				return false;
@@ -33,8 +32,7 @@
 		}
 
 		public function login ($login, $password) {
-			$connect = $this->connecting();
-			$user = $connect->query("SELECT * FROM users WHERE login = '" . $login . "'")->fetch();
+			$user = $this->connect->query("SELECT * FROM users WHERE login = '" . $login . "'")->fetch();
 			if ($user) {
 				if ($user['password'] == $this->pass($user['name'], strip_tags($password))) {
     				$_SESSION['user_id'] = $user['id'];

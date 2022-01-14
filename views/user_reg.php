@@ -1,4 +1,8 @@
-<h3><?php if(isset($text)){echo $text;}?></h3>
+<?php 
+	if($text){ ?>
+		<h3>Вы успешно зарегистрировались!</h3>
+	<?PHP }	
+?>
 <br>
 <form method="post">
 	<input type="text" name="name" placeholder="Введите имя" required>
