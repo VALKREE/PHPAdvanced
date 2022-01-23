@@ -1,18 +1,1 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title></title>
-	<link rel="stylesheet" href="./CSS/index.css">
-</head>
-<body>
-	<div class="wrapper">
-		<?PHP
-			include "Site.php";
-			$page = new Site();
-			$page->renderPage();
-		?>
-	</div>
-</body>
-</html>
+<?php	spl_autoload_register(		function ($classname) {	    	include "classes/$classname.php";		}	);	$action = 'action_';	$action .= (isset($_GET['action'])) ? $_GET['action'] : 'index';	switch($_GET['class']){		case 'page':			$controller = new class_Page();			break;		case 'user':			$controller = new class_User();			break;		default:			$controller = new class_Page();			break;	}	$controller->Request($action);?>
